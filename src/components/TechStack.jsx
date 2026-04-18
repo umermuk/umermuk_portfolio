@@ -4,38 +4,52 @@ import { skills } from '../data';
 
 export const TechStack = () => {
   return (
-    <section id="skills" className="py-24 relative overflow-hidden">
+    <section id="skills" className="py-32 relative">
       <div className="container mx-auto px-6">
-        <div className="text-center mb-16">
-          <h2 className="text-sm font-semibold text-primary uppercase tracking-widest mb-4">Expertise</h2>
-          <h3 className="text-4xl font-bold">Tech Stack</h3>
+        <div className="flex flex-col md:flex-row justify-between items-end mb-20 gap-8">
+          <div className="max-w-xl">
+            <h2 className="text-sm font-bold text-primary uppercase tracking-[0.3em] mb-6">Expertise</h2>
+            <h3 className="text-5xl md:text-6xl font-black leading-tight">Technical <span className="text-slate-500">Arsenal.</span></h3>
+          </div>
+          <p className="text-slate-400 text-xl font-medium max-w-sm mb-2">
+            A curated selection of technologies I use to build scalable, high-performance systems.
+          </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
           {skills.map((skill, index) => (
             <motion.div
               key={skill.category}
               whileInView={{ opacity: 1, y: 0 }}
               initial={{ opacity: 0, y: 30 }}
-              transition={{ duration: 0.5, delay: index * 0.1 }}
-              className="glass p-8 rounded-3xl group hover:border-primary/50 transition-colors"
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: index * 0.1 }}
+              className="relative group h-full"
             >
-              <div className="flex items-center gap-4 mb-6">
-                <div className="p-3 bg-primary/10 rounded-xl text-primary group-hover:bg-primary group-hover:text-white transition-all duration-300">
-                  <skill.icon size={28} />
+              <div className="absolute inset-0 bg-white/[0.02] rounded-[2.5rem] group-hover:bg-primary/5 transition-colors duration-500" />
+              <div className="relative glass p-10 rounded-[2.5rem] border border-white/5 h-full flex flex-col hover:border-primary/20 transition-all duration-500 shadow-xl shadow-black/40">
+                <div className="flex items-center gap-5 mb-8">
+                  <div className="p-4 bg-primary/10 rounded-2xl text-primary group-hover:bg-primary group-hover:text-white transition-all duration-500">
+                    <skill.icon size={32} />
+                  </div>
+                  <h4 className="text-2xl font-black text-white">{skill.category}</h4>
                 </div>
-                <h4 className="text-xl font-bold">{skill.category}</h4>
-              </div>
 
-              <div className="flex flex-wrap gap-2">
-                {skill.items.map((item) => (
-                  <span 
-                    key={item}
-                    className="px-3 py-1 bg-white/5 border border-white/5 rounded-full text-sm text-slate-400 hover:text-white hover:border-white/20 transition-all"
-                  >
-                    {item}
-                  </span>
-                ))}
+                <div className="flex flex-wrap gap-3 mt-auto">
+                  {skill.items.map((item) => (
+                    <div 
+                      key={item.name}
+                      className={`flex items-center gap-2 px-4 py-2 rounded-xl text-sm font-bold transition-all duration-300 border ${
+                        item.highlight 
+                        ? 'bg-primary/20 text-primary border-primary/30 shadow-lg shadow-primary/10' 
+                        : 'bg-white/5 text-slate-400 border-white/5 hover:border-white/20 hover:text-white'
+                      }`}
+                    >
+                      {item.icon && <item.icon size={16} />}
+                      {item.name}
+                    </div>
+                  ))}
+                </div>
               </div>
             </motion.div>
           ))}
