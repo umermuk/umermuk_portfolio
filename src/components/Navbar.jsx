@@ -41,7 +41,7 @@ export const Navbar = () => {
           smooth={true}
           className="text-2xl font-black tracking-tighter cursor-pointer group"
         >
-          UMER<span className="text-primary group-hover:text-secondary transition-colors duration-500">.</span>
+          UMER MUKHTAR<span className="text-primary group-hover:text-secondary transition-colors duration-500">.</span>
         </Link>
 
         {/* Desktop Links */}
@@ -80,7 +80,7 @@ export const Navbar = () => {
             exit={{ opacity: 0, x: 100 }}
             className="fixed inset-0 z-40 md:hidden bg-background/95 backdrop-blur-2xl flex flex-col items-center justify-center space-y-10"
           >
-            <button 
+            <button
               className="absolute top-10 right-10 p-4 glass rounded-full"
               onClick={() => setIsMobileMenuOpen(false)}
             >
