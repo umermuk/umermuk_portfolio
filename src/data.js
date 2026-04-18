@@ -11,8 +11,8 @@ import {
   Bell,
   BarChart3
 } from "lucide-react";
-import { FaGithub, FaLinkedin, FaNodeJs, FaLaravel, FaPhp } from "react-icons/fa";
-import { SiPostgresql, SiMysql, SiDocker, SiTailwindcss, SiJavascript, SiTypescript, SiRedis, SiSocketdotio, SiAmazonwebservices } from "react-icons/si";
+import { FaGithub, FaLinkedin, FaNodeJs, FaLaravel, FaPhp, FaAws } from "react-icons/fa";
+import { SiPostgresql, SiMysql, SiDocker, SiTailwindcss, SiJavascript, SiTypescript, SiRedis, SiSocketdotio } from "react-icons/si";
 
 export const personalInfo = {
   name: "Umer Mukhtar",
@@ -70,7 +70,7 @@ export const skills = [
     icon: Cloud,
     items: [
       { name: "Docker", icon: SiDocker },
-      { name: "AWS S3", icon: SiAmazonwebservices },
+      { name: "AWS S3", icon: FaAws },
       { name: "CI/CD", icon: null },
       { name: "cPanel/OVH", icon: null }
     ]
