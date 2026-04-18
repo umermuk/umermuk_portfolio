@@ -1,0 +1,41 @@
+@import "tailwindcss";
+
+@theme {
+  --color-primary: #0ea5e9; /* Neon Blue */
+  --color-secondary: #a855f7; /* Purple */
+  --color-accent: #3b82f6;
+  --color-background: #0a0a0a;
+  --color-card: #121212;
+  
+  --font-sans: "Inter", "Poppins", ui-sans-serif, system-ui, sans-serif;
+  
+  --shadow-glass: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+}
+
+@layer base {
+  body {
+    @apply bg-background text-slate-200 antialiased selection:bg-primary/30;
+  }
+}
+
+@layer utilities {
+  .glass {
+    @apply bg-white/5 backdrop-blur-md border border-white/10 shadow-glass;
+  }
+  
+  .text-gradient {
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-primary to-secondary;
+  }
+
+  .bg-gradient-mesh {
+    background-image: 
+      radial-gradient(at 0% 0%, hsla(199, 89%, 48%, 0.15) 0px, transparent 50%),
+      radial-gradient(at 100% 0%, hsla(271, 91%, 65%, 0.15) 0px, transparent 50%),
+      radial-gradient(at 100% 100%, hsla(199, 89%, 48%, 0.1) 0px, transparent 50%),
+      radial-gradient(at 0% 100%, hsla(271, 91%, 65%, 0.1) 0px, transparent 50%);
+  }
+}
+
+html {
+  scroll-behavior: smooth;
+}
