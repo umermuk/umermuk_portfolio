@@ -1,7 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { projects } from '../data';
-import { ExternalLink, ArrowUpRight, Github } from 'lucide-react';
+import { ExternalLink, ArrowUpRight } from 'lucide-react';
 import { FaGithub } from 'react-icons/fa';
 
 export const Projects = () => {
