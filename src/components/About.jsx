@@ -7,7 +7,7 @@ export const About = () => {
     <section id="about" className="py-32 relative overflow-hidden">
       <div className="container mx-auto px-6">
         <div className="flex flex-col lg:flex-row items-center gap-20">
-          <motion.div 
+          <motion.div
             whileInView={{ opacity: 1, x: 0 }}
             initial={{ opacity: 0, x: -50 }}
             viewport={{ once: true }}
@@ -41,15 +41,15 @@ export const About = () => {
               </div>
               <div className="relative group hidden md:block">
                 <div className="absolute inset-0 bg-accent/20 blur-xl group-hover:bg-accent/30 transition-colors rounded-3xl" />
-                <div className="relative p-6 glass rounded-3xl border border-white/5">
+                {/* <div className="relative p-6 glass rounded-3xl border border-white/5">
                   <h4 className="text-4xl font-black text-white">50k+</h4>
                   <p className="text-sm text-slate-500 font-bold uppercase tracking-wider">Daily Users</p>
-                </div>
+                </div> */}
               </div>
             </div>
           </motion.div>
 
-          <motion.div 
+          <motion.div
             whileInView={{ opacity: 1, x: 0 }}
             initial={{ opacity: 0, x: 50 }}
             viewport={{ once: true }}
@@ -57,13 +57,13 @@ export const About = () => {
             className="lg:w-2/5 relative"
           >
             <div className="aspect-[4/5] glass rounded-[3rem] overflow-hidden relative group border border-white/10 shadow-2xl">
-              <img 
-                src="https://images.unsplash.com/photo-1555066931-4365d14bab8c?q=80&w=800&auto=format&fit=crop" 
-                alt="Code architecture" 
+              <img
+                src="https://images.unsplash.com/photo-1555066931-4365d14bab8c?q=80&w=800&auto=format&fit=crop"
+                alt="Code architecture"
                 className="w-full h-full object-cover grayscale opacity-40 group-hover:grayscale-0 group-hover:opacity-80 transition-all duration-1000 scale-110 group-hover:scale-100"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-background via-transparent to-transparent opacity-60" />
-              
+
               <div className="absolute bottom-8 left-8 right-8 p-6 glass rounded-2xl border border-white/10 backdrop-blur-xl translate-y-4 group-hover:translate-y-0 transition-transform duration-500">
                 <p className="text-white font-bold italic">
                   "Architecture is about the important stuff. Whatever that is."

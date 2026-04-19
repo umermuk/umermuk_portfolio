@@ -16,9 +16,9 @@ import { SiPostgresql, SiMysql, SiDocker, SiTailwindcss, SiJavascript, SiTypescr
 
 export const personalInfo = {
   name: "Umer Mukhtar",
-  title: "Backend Engineer | Laravel & Node.js Specialist",
-  subtitle: "I build scalable backend systems, real-time applications, and high-performance web platforms.",
-  impactLine: "4+ years experience in PHP (Laravel) and 2+ years in Node.js",
+  title: "Senior Backend Engineer | System Architect",
+  subtitle: "Architecting scalable backend systems, complex API logic, and high-concurrency real-time engines.",
+  impactLine: "Specializing in Scalable Backend Architecture",
   email: "umerwell1234@gmail.com",
   socials: {
     github: "https://github.com/umermuk",
@@ -28,61 +28,44 @@ export const personalInfo = {
 
 export const aboutContent = {
   paragraphs: [
-    "With over 4 years of expertise in PHP Laravel and 2+ years in Node.js, I specialize in architecting robust backend systems that prioritize performance, scalability, and clean code. My approach is centered on building secure and efficient server-side architectures that solve complex business problems while ensuring a seamless developer and user experience.",
-    "I have a proven track record in developing high-concurrency real-time systems, sophisticated CRM dashboards, and large-scale ecommerce platforms. My focus is always on implementing best practices in architecture, from database optimization to microservices, ensuring that systems can grow and evolve without technical debt.",
-    "I am deeply committed to performance tuning and security, leveraging tools like Redis and WebSockets to deliver lightning-fast, interactive experiences. Whether it's a real-time bidding engine or a notification system, I thrive on the technical challenges that come with modern web engineering."
+    "As a Senior Backend Engineer with extensive experience in Laravel and Node.js, I specialize in designing and implementing high-performance server-side architectures. My focus is on creating scalable, secure, and maintainable systems that handle complex business logic and high traffic volumes.",
+    "I have successfully delivered sophisticated real-time solutions, including bidding engines and notification hubs, leveraging WebSockets and Redis for sub-100ms latency. I am passionate about database optimization, microservices architecture, and implementing robust CI/CD pipelines to ensure seamless deployment and system reliability.",
+    "My technical leadership involves mentoring developers, establishing best practices in API design (REST/GraphQL), and managing cloud infrastructure (AWS/VPS). I thrive in environments that challenge my problem-solving skills and require deep technical expertise in backend engineering."
   ]
 };
 
 export const skills = [
   {
-    category: "Backend",
+    category: "System Architecture",
+    description: "Designing robust foundations for complex applications.",
     icon: Server,
     items: [
-      { name: "PHP", icon: FaPhp, highlight: true },
-      { name: "Laravel", icon: FaLaravel, highlight: true },
-      { name: "Node.js", icon: FaNodeJs, highlight: true },
-      { name: "Express", icon: null }
-    ]
-  },
-  {
-    category: "Database",
-    icon: Database,
-    items: [
-      { name: "PostgreSQL", icon: SiPostgresql },
-      { name: "MySQL", icon: SiMysql },
-      { name: "Redis", icon: SiRedis, highlight: true },
-      { name: "MongoDB", icon: null }
-    ]
-  },
-  {
-    category: "Real-time & Services",
-    icon: Zap,
-    items: [
-      { name: "WebSockets", icon: SiSocketdotio, highlight: true },
-      { name: "Socket.io", icon: SiSocketdotio },
-      { name: "Pusher", icon: null },
+      { name: "RBAC & Security", icon: Database, highlight: true },
+      { name: "API Design (REST/GraphQL)", icon: Layout, highlight: true },
+      { name: "Database Schema Design", icon: Database },
       { name: "Microservices", icon: Cpu }
     ]
   },
   {
-    category: "DevOps",
-    icon: Cloud,
+    category: "Real-time Solutions",
+    description: "High-concurrency systems with instant synchronization.",
+    icon: Zap,
     items: [
-      { name: "Docker", icon: SiDocker },
-      { name: "AWS S3", icon: FaAws },
-      { name: "CI/CD", icon: null },
-      { name: "cPanel/OVH", icon: null }
+      { name: "WebSockets / Socket.io", icon: SiSocketdotio, highlight: true },
+      { name: "Bidding Engines", icon: Zap, highlight: true },
+      { name: "Redis Caching", icon: SiRedis },
+      { name: "Message Queues", icon: Bell }
     ]
   },
   {
-    category: "Frontend & Tools",
-    icon: Layout,
+    category: "Cloud & DevOps",
+    description: "Ensuring uptime, scalability, and automated deployments.",
+    icon: Cloud,
     items: [
-      { name: "JavaScript", icon: SiJavascript },
-      { name: "Tailwind CSS", icon: SiTailwindcss },
-      { name: "Git", icon: null },
-      { name: "REST APIs", icon: null }
+      { name: "Docker & Containerization", icon: SiDocker, highlight: true },
+      { name: "CI/CD Pipelines", icon: FaGithub, highlight: true },
+      { name: "AWS S3 & Cloud Storage", icon: FaAws },
+      { name: "VPS & Server Management", icon: Server }
     ]
   }
 ];

@@ -6,12 +6,12 @@ export const Footer = () => {
     <footer className="py-12 border-t border-white/5">
       <div className="container mx-auto px-6">
         <div className="flex flex-col md:flex-row items-center justify-between gap-8">
-          <Link 
-            to="home" 
-            smooth={true} 
+          <Link
+            to="home"
+            smooth={true}
             className="text-2xl font-bold text-gradient cursor-pointer"
           >
-            Portfolio.
+            UMER MUKHTAR.
           </Link>
 
           <div className="flex flex-wrap justify-center gap-8 text-sm text-slate-500 uppercase tracking-widest font-medium">
