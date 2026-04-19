@@ -45,7 +45,7 @@ export const TechStack = () => {
                   {skill.items.map((item) => (
                     <div 
                       key={item.name}
-                      className={`flex items-center gap-2 px-4 py-2 rounded-xl text-[10px] font-black uppercase tracking-widest transition-all duration-300 border ${
+                      className={`flex items-center gap-2 px-4 py-2 rounded-xl text-[10px] font-black uppercase tracking-widest transition-all duration-300 border hover-glow ${
                         item.highlight 
                         ? 'bg-primary/20 text-primary border-primary/30 shadow-lg shadow-primary/10' 
                         : 'bg-white/5 text-slate-500 border-white/5 hover:border-white/20 hover:text-white'

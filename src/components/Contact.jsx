@@ -6,11 +6,22 @@ import { personalInfo } from '../data';
 
 export const Contact = () => {
   const [copied, setCopied] = useState(false);
+  const [status, setStatus] = useState('idle'); // idle, sending, success
 
   const copyEmail = () => {
     navigator.clipboard.writeText(personalInfo.email);
     setCopied(true);
     setTimeout(() => setCopied(false), 2000);
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    setStatus('sending');
+    // Simulate API call
+    setTimeout(() => {
+      setStatus('success');
+      setTimeout(() => setStatus('idle'), 5000);
+    }, 1500);
   };
 
   return (
@@ -92,12 +103,13 @@ export const Contact = () => {
           >
             <div className="relative">
               <div className="absolute inset-0 bg-primary/5 blur-[100px] rounded-full" />
-              <form className="relative glass p-10 md:p-14 rounded-[4rem] border border-white/10 shadow-2xl space-y-8" onSubmit={(e) => e.preventDefault()}>
+              <form className="relative glass p-10 md:p-14 rounded-[4rem] border border-white/10 shadow-2xl space-y-8" onSubmit={handleSubmit}>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                   <div className="space-y-3">
                     <label className="text-[10px] font-black text-slate-500 uppercase tracking-[0.2em] ml-1">Your Name</label>
                     <input 
                       type="text" 
+                      required
                       placeholder="John Doe"
                       className="w-full bg-white/5 border border-white/5 rounded-2xl px-8 py-5 outline-none focus:border-primary/50 focus:bg-white/[0.08] transition-all font-medium text-lg"
                     />
@@ -106,6 +118,7 @@ export const Contact = () => {
                     <label className="text-[10px] font-black text-slate-500 uppercase tracking-[0.2em] ml-1">Email Address</label>
                     <input 
                       type="email" 
+                      required
                       placeholder="john@example.com"
                       className="w-full bg-white/5 border border-white/5 rounded-2xl px-8 py-5 outline-none focus:border-primary/50 focus:bg-white/[0.08] transition-all font-medium text-lg"
                     />
@@ -115,6 +128,7 @@ export const Contact = () => {
                   <label className="text-[10px] font-black text-slate-500 uppercase tracking-[0.2em] ml-1">Message Brief</label>
                   <textarea 
                     rows="5"
+                    required
                     placeholder="Briefly describe the technical challenge or project scope..."
                     className="w-full bg-white/5 border border-white/5 rounded-3xl px-8 py-5 outline-none focus:border-primary/50 focus:bg-white/[0.08] transition-all font-medium text-lg resize-none"
                   ></textarea>
@@ -122,10 +136,27 @@ export const Contact = () => {
                 <motion.button 
                   whileHover={{ scale: 1.02 }}
                   whileTap={{ scale: 0.98 }}
-                  className="w-full py-6 bg-gradient-to-r from-primary to-secondary rounded-3xl font-black text-white text-xl flex items-center justify-center gap-4 hover:shadow-2xl hover:shadow-primary/30 transition-all group"
+                  disabled={status !== 'idle'}
+                  className="w-full py-6 bg-gradient-to-r from-primary to-secondary rounded-3xl font-black text-white text-xl flex items-center justify-center gap-4 hover:shadow-2xl hover:shadow-primary/30 transition-all group disabled:opacity-70"
                 >
-                  Initiate Discussion 
-                  <Send size={24} className="group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
+                  {status === 'idle' && (
+                    <>
+                      Initiate Discussion 
+                      <Send size={24} className="group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
+                    </>
+                  )}
+                  {status === 'sending' && (
+                    <div className="w-6 h-6 border-4 border-white/30 border-t-white rounded-full animate-spin" />
+                  )}
+                  {status === 'success' && (
+                    <motion.div 
+                      initial={{ scale: 0 }}
+                      animate={{ scale: 1 }}
+                      className="flex items-center gap-2"
+                    >
+                      Message Sent! <Check size={24} />
+                    </motion.div>
+                  )}
                 </motion.button>
               </form>
             </div>

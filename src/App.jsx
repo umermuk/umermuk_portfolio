@@ -2,6 +2,7 @@ import React from 'react';
 import { Navbar } from './components/Navbar';
 import { Hero } from './components/Hero';
 import { About } from './components/About';
+import { LogicSpecialist } from './components/LogicSpecialist';
 import { TechStack } from './components/TechStack';
 import { Projects } from './components/Projects';
 import { Experience } from './components/Experience';
@@ -15,6 +16,7 @@ function App() {
       <main>
         <Hero />
         <About />
+        <LogicSpecialist />
         <TechStack />
         <Projects />
         <Experience />

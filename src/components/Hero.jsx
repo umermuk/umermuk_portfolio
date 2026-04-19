@@ -69,41 +69,63 @@ export const Hero = () => {
           </div>
 
           <h1 className="text-5xl md:text-8xl font-black mb-6 tracking-tighter leading-tight">
-            Scalable <span className="text-gradient">Backend</span> <br />
-            Architecture.
+            Architecting Robust <br />
+            <span className="text-gradient">Backend Systems</span>
           </h1>
 
-          <div className="flex items-center justify-center gap-3 mb-12 text-slate-400 text-xl md:text-2xl font-medium">
-            <Terminal size={24} className="text-primary" />
-            <p>
-              Deep dive into <TypingEffect />
-            </p>
-          </div>
-
-          <p className="max-w-2xl mx-auto text-slate-400 text-lg md:text-xl mb-12 leading-relaxed italic">
-            "Senior Engineering focused on high-concurrency systems and complex logic optimization."
+          <p className="max-w-3xl mx-auto text-slate-400 text-lg md:text-xl mb-12 leading-relaxed">
+            4+ years of expertise in PHP Laravel & Node.js. <br />
+            <span className="text-white font-medium">Specializing in complex logic, real-time engines, and scalable architectures.</span>
           </p>
 
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-6">
-            <Link to="projects" smooth={true} className="w-full sm:w-auto">
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-6 mb-16">
+            <a href="https://drive.google.com/file/d/1vRTBkPgFb9IgozGqu-4ie2mW9WPBkmfo/view?usp=drive_link" className="w-full sm:w-auto" target="_blank">
               <motion.button
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
                 className="w-full px-10 py-5 bg-gradient-to-r from-primary to-secondary rounded-2xl font-bold text-white shadow-2xl shadow-primary/20 cursor-pointer flex items-center justify-center gap-2 group"
               >
-                Explore Systems
-                <ArrowRight size={20} className="group-hover:translate-x-1 transition-transform" />
+                Download CV <Download size={18} />
               </motion.button>
-            </Link>
-            <a href="https://drive.google.com/file/d/1vRTBkPgFb9IgozGqu-4ie2mW9WPBkmfo/view?usp=drive_link" className="w-full sm:w-auto" target="_blank">
+            </a>
+            <Link to="projects" smooth={true} className="w-full sm:w-auto">
               <motion.button
                 whileHover={{ backgroundColor: "rgba(255, 255, 255, 0.1)" }}
                 className="w-full px-10 py-5 glass rounded-2xl font-bold text-white flex items-center justify-center gap-2 transition-all cursor-pointer border border-white/5"
               >
-                Download CV <Download size={18} />
+                View Projects <ArrowRight size={20} className="group-hover:translate-x-1 transition-transform" />
               </motion.button>
-            </a>
+            </Link>
           </div>
+
+          {/* Terminal Graphic */}
+          <motion.div 
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.5, duration: 0.8 }}
+            className="max-w-xl mx-auto terminal-window text-left"
+          >
+            <div className="terminal-header border-b border-white/5 px-4 py-2 flex items-center gap-2">
+              <div className="flex gap-1.5">
+                <div className="w-3 h-3 rounded-full bg-red-500/30"></div>
+                <div className="w-3 h-3 rounded-full bg-yellow-500/30"></div>
+                <div className="w-3 h-3 rounded-full bg-green-500/30"></div>
+              </div>
+              <div className="text-[10px] text-slate-500 font-mono ml-4">bash — 80x24</div>
+            </div>
+            <div className="p-6 font-mono space-y-2 text-xs md:text-sm">
+              <div className="flex gap-2">
+                <span className="text-primary">$</span>
+                <span className="animate-typing">composer install --optimize-autoloader</span>
+              </div>
+              <div className="text-slate-500">
+                Installing dependencies from lock file...<br />
+                Package operations: <span className="text-secondary">42 installs</span>, 0 updates, 0 removals<br />
+                - Installing <span className="text-primary">laravel/framework</span> (v10.x)<br />
+                <span className="text-primary">Generating optimized autoload files</span>
+              </div>
+            </div>
+          </motion.div>
         </motion.div>
       </div>
 

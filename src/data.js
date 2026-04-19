@@ -9,15 +9,19 @@ import {
   ShoppingCart,
   Zap,
   Bell,
-  BarChart3
+  BarChart3,
+  Trophy,
+  Activity,
+  Terminal,
+  Settings
 } from "lucide-react";
 import { FaGithub, FaLinkedin, FaNodeJs, FaLaravel, FaPhp, FaAws } from "react-icons/fa";
 import { SiPostgresql, SiMysql, SiDocker, SiTailwindcss, SiJavascript, SiTypescript, SiRedis, SiSocketdotio } from "react-icons/si";
 
 export const personalInfo = {
   name: "Umer Mukhtar",
-  title: "Senior Backend Engineer | System Architect",
-  subtitle: "Architecting scalable backend systems, complex API logic, and high-concurrency real-time engines.",
+  title: "Architecting Robust Backend Systems",
+  subtitle: "4+ years of expertise in PHP Laravel & Node.js. Specializing in complex logic, real-time engines, and scalable architectures.",
   impactLine: "Specializing in Scalable Backend Architecture",
   email: "umerwell1234@gmail.com",
   socials: {
@@ -33,6 +37,24 @@ export const aboutContent = {
     "My technical leadership involves mentoring developers, establishing best practices in API design (REST/GraphQL), and managing cloud infrastructure (AWS/VPS). I thrive in environments that challenge my problem-solving skills and require deep technical expertise in backend engineering."
   ]
 };
+
+export const logicSpecialist = [
+  {
+    title: "Sport Scoring Engines",
+    description: "Real-time Padel, Futsal, and Cricket scoring systems with complex state management.",
+    icon: Trophy
+  },
+  {
+    title: "Real-time Ecosystems",
+    description: "High-concurrency bidding systems and chat applications using WebSockets.",
+    icon: Zap
+  },
+  {
+    title: "Automation & DevOps",
+    description: "Streamlining deployments with Docker, CI/CD pipelines, and VPS management.",
+    icon: Settings
+  }
+];
 
 export const skills = [
   {
