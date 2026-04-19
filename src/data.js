@@ -92,46 +92,48 @@ export const skills = [
   }
 ];
 
+import { FaFistRaised, FaGavel, FaUsersCog, FaShoppingCart } from "react-icons/fa";
+
 export const projects = [
   {
     id: 1,
-    title: "Multi-Sport Scoring Engine",
-    description: "Real-time logic for Padel, Futsal, and Cricket using complex state machines.",
-    breakdown: "Architected a high-concurrency scoring engine that manages complex match states across different sports. Implemented WebSocket-based synchronization for sub-100ms score updates to thousands of users.",
-    tech: ["Laravel", "WebSockets", "Redis", "MySQL"],
-    feature: "Complex State Management",
-    icon: Zap,
-    image: "https://images.unsplash.com/photo-1551288049-bbbda536639a?q=80&w=800&auto=format&fit=crop"
+    title: "Real-Time Multi-Sport Scoring Engine",
+    description: "Architected the backend for real-time scoring of Padel, Futsal, and Cricket.",
+    techDescription: "Implemented complex state management and business rules (e.g., Padel deuce/tie-break logic) with high reliability. Engineered a high-concurrency event-driven architecture to handle real-time match state transitions without latency spikes.",
+    keyFeatures: ["Complex Business Logic", "Real-Time State Management", "High Availability"],
+    tech: ["Laravel", "WebSockets", "MySQL", "RealTime"],
+    icon: FaFistRaised,
+    feature: "Engineered Score Sync"
   },
   {
     id: 2,
-    title: "Enterprise Bidding System",
-    description: "High-concurrency handling and automated winner selection.",
-    breakdown: "Developed a robust bidding system capable of handling thousands of bids per second. Engineered an automated auction closure and winner selection logic with transaction safety and data integrity.",
-    tech: ["Laravel", "Redis", "MySQL", "Socket.io"],
-    feature: "High-Concurrency Processing",
-    icon: Zap,
-    image: "https://images.unsplash.com/photo-1557821552-17105176677c?q=80&w=800&auto=format&fit=crop"
+    title: "High-Concurrency Bidding System",
+    description: "Developed a robust bidding engine that handled high concurrent user traffic.",
+    techDescription: "Implemented real-time bid updates, race condition prevention during automated winner selection, and database transaction locking. Focused on atomic operations to ensure data integrity during peak auction events.",
+    keyFeatures: ["High Concurrency", "Atomic Transactions", "Real-Time Bid Sync"],
+    tech: ["NodeJS", "PostgreSQL", "Redis", "Express"],
+    icon: FaGavel,
+    feature: "Race Condition Prevention"
   },
   {
     id: 3,
-    title: "Custom CRM & RBAC",
-    description: "Multi-tenant data isolation and granular permission matrices.",
-    breakdown: "Built a sophisticated CRM system with multi-tenancy and a deep RBAC (Role-Based Access Control) system. Ensured strict data isolation and implemented complex permission matrices for enterprise-grade security.",
-    tech: ["Laravel", "PostgreSQL", "Docker", "Nginx"],
-    feature: "Enterprise Security Architecture",
-    icon: Database,
-    image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=800&auto=format&fit=crop"
+    title: "Modular CRM & Permission Management",
+    description: "Designed a modular CRM tailored for custom business workflows.",
+    techDescription: "Implemented a detailed, granular Role-Based Access Control (RBAC) system for secure, multi-tenant data access. Focused on multi-tenant data isolation and flexible workflow automation logic for enterprise-grade security.",
+    keyFeatures: ["Multi-Tenant Architecture", "Flexible Workflow Automation", "RBAC"],
+    tech: ["PHP", "Laravel", "Livewire", "CRM"],
+    icon: FaUsersCog,
+    feature: "Granular RBAC Logic"
   },
   {
     id: 4,
-    title: "E-commerce Backend",
-    description: "Inventory management, API integrations, and S3 bucket for media.",
-    breakdown: "Engineered a scalable ecommerce infrastructure with complex inventory management logic. Integrated third-party logistics and payment APIs, and leveraged AWS S3 for secure, high-availability media storage.",
-    tech: ["Node.js", "Express", "AWS S3", "MongoDB"],
-    feature: "Scalable API Ecosystem",
-    icon: ShoppingCart,
-    image: "https://images.unsplash.com/photo-1611746872915-64382b5c76da?q=80&w=800&auto=format&fit=crop"
+    title: "Scalable E-Commerce Backend",
+    description: "Built the backend infrastructure for a custom e-commerce platform.",
+    techDescription: "Integrated third-party APIs for payments, managed massive inventory data, and utilized AWS S3 for secure media handling. Architected the database for fast read/writes during high-traffic sales periods.",
+    keyFeatures: ["API Integrations", "Scalable Database Design", "Media Management"],
+    tech: ["Laravel", "Docker", "AWSS3", "Ecommerce"],
+    icon: FaShoppingCart,
+    feature: "Scalable Data Ecosystem"
   }
 ];
 

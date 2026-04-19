@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Mail, Send, ArrowRight, Copy, Check } from 'lucide-react';
+import { Mail, Send, ArrowRight, Copy, Check, X } from 'lucide-react';
 import { FaGithub, FaLinkedin } from 'react-icons/fa';
 import { personalInfo } from '../data';
 
@@ -14,29 +14,45 @@ export const Contact = () => {
     setTimeout(() => setCopied(false), 2000);
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    const formData = new FormData(e.target);
-    const data = Object.fromEntries(formData.entries());
-    
+    const form = e.target;
+    const formData = new FormData(form);
+
     setStatus('sending');
-    // Simulate API call
-    setTimeout(() => {
-      console.log('Form submitted:', data);
-      setStatus('success');
-      e.target.reset();
-      setTimeout(() => setStatus('idle'), 5000);
-    }, 1500);
+
+    try {
+      const response = await fetch("https://formspree.io/f/xjgjrozq", {
+        method: "POST",
+        body: formData,
+        headers: {
+          'Accept': 'application/json'
+        }
+      });
+
+      if (response.ok) {
+        setStatus('success');
+        form.reset();
+        setTimeout(() => setStatus('idle'), 5000);
+      } else {
+        setStatus('idle');
+        console.error('Form submission failed');
+      }
+    } catch (error) {
+      setStatus('idle');
+      console.error('Error submitting form:', error);
+    }
   };
 
   return (
+    <>
     <section id="contact" className="py-32 relative overflow-hidden">
       {/* Background decoration */}
       <div className="absolute bottom-0 right-0 w-[600px] h-[600px] bg-primary/5 rounded-full blur-[150px] -z-10" />
-      
+
       <div className="container mx-auto px-6">
         <div className="flex flex-col lg:flex-row gap-24 items-center">
-          <motion.div 
+          <motion.div
             whileInView={{ opacity: 1, x: 0 }}
             initial={{ opacity: 0, x: -50 }}
             viewport={{ once: true }}
@@ -58,7 +74,7 @@ export const Contact = () => {
                     <Mail size={36} />
                     <AnimatePresence>
                       {copied && (
-                        <motion.div 
+                        <motion.div
                           initial={{ opacity: 0, scale: 0.5, y: 10 }}
                           animate={{ opacity: 1, scale: 1, y: -45 }}
                           exit={{ opacity: 0, scale: 0.5, y: 10 }}
@@ -79,18 +95,18 @@ export const Contact = () => {
               </div>
 
               <div className="flex gap-6 pt-6">
-                <motion.a 
+                <motion.a
                   whileHover={{ y: -5, scale: 1.05 }}
-                  href={personalInfo.socials.github} 
-                  target="_blank" 
+                  href={personalInfo.socials.github}
+                  target="_blank"
                   className="p-6 glass rounded-[2rem] text-slate-400 hover:text-white hover:border-primary/50 transition-all border border-white/5 shadow-xl"
                 >
                   <FaGithub size={32} />
                 </motion.a>
-                <motion.a 
+                <motion.a
                   whileHover={{ y: -5, scale: 1.05 }}
-                  href={personalInfo.socials.linkedin} 
-                  target="_blank" 
+                  href={personalInfo.socials.linkedin}
+                  target="_blank"
                   className="p-6 glass rounded-[2rem] text-slate-400 hover:text-white hover:border-primary/50 transition-all border border-white/5 shadow-xl"
                 >
                   <FaLinkedin size={32} />
@@ -99,7 +115,7 @@ export const Contact = () => {
             </div>
           </motion.div>
 
-          <motion.div 
+          <motion.div
             whileInView={{ opacity: 1, x: 0 }}
             initial={{ opacity: 0, x: 50 }}
             viewport={{ once: true }}
@@ -111,9 +127,9 @@ export const Contact = () => {
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                   <div className="space-y-3">
                     <label className="text-[10px] font-black text-slate-500 uppercase tracking-[0.2em] ml-1">Your Name</label>
-                    <input 
+                    <input
                       name="name"
-                      type="text" 
+                      type="text"
                       required
                       placeholder="John Doe"
                       className="w-full bg-white/5 border border-white/5 rounded-2xl px-8 py-5 outline-none focus:border-primary/50 focus:bg-white/[0.08] transition-all font-medium text-lg"
@@ -121,9 +137,9 @@ export const Contact = () => {
                   </div>
                   <div className="space-y-3">
                     <label className="text-[10px] font-black text-slate-500 uppercase tracking-[0.2em] ml-1">Email Address</label>
-                    <input 
+                    <input
                       name="email"
-                      type="email" 
+                      type="email"
                       required
                       placeholder="john@example.com"
                       className="w-full bg-white/5 border border-white/5 rounded-2xl px-8 py-5 outline-none focus:border-primary/50 focus:bg-white/[0.08] transition-all font-medium text-lg"
@@ -132,7 +148,7 @@ export const Contact = () => {
                 </div>
                 <div className="space-y-3">
                   <label className="text-[10px] font-black text-slate-500 uppercase tracking-[0.2em] ml-1">Message Brief</label>
-                  <textarea 
+                  <textarea
                     name="message"
                     rows="5"
                     required
@@ -140,7 +156,7 @@ export const Contact = () => {
                     className="w-full bg-white/5 border border-white/5 rounded-3xl px-8 py-5 outline-none focus:border-primary/50 focus:bg-white/[0.08] transition-all font-medium text-lg resize-none"
                   ></textarea>
                 </div>
-                <motion.button 
+                <motion.button
                   whileHover={{ scale: 1.02 }}
                   whileTap={{ scale: 0.98 }}
                   disabled={status !== 'idle'}
@@ -148,20 +164,23 @@ export const Contact = () => {
                 >
                   {status === 'idle' && (
                     <>
-                      Initiate Discussion 
+                      Send Message
                       <Send size={24} className="group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
                     </>
                   )}
                   {status === 'sending' && (
-                    <div className="w-6 h-6 border-4 border-white/30 border-t-white rounded-full animate-spin" />
+                    <>
+                      Sending...
+                      <div className="w-6 h-6 border-4 border-white/30 border-t-white rounded-full animate-spin ml-2" />
+                    </>
                   )}
                   {status === 'success' && (
-                    <motion.div 
+                    <motion.div
                       initial={{ scale: 0 }}
                       animate={{ scale: 1 }}
                       className="flex items-center gap-2"
                     >
-                      Message Sent! <Check size={24} />
+                      Thank you! Your message has been sent successfully. <Check size={24} />
                     </motion.div>
                   )}
                 </motion.button>
@@ -171,5 +190,32 @@ export const Contact = () => {
         </div>
       </div>
     </section>
+    
+    {/* Success Pop-up */}
+    <AnimatePresence>
+      {status === 'success' && (
+        <motion.div
+          initial={{ opacity: 0, y: 50, x: '-50%' }}
+          animate={{ opacity: 1, y: 0, x: '-50%' }}
+          exit={{ opacity: 0, y: 50, x: '-50%' }}
+          className="fixed bottom-10 left-1/2 z-[100] glass px-8 py-4 rounded-2xl border border-primary/30 flex items-center gap-4 shadow-2xl min-w-[320px]"
+        >
+          <div className="w-10 h-10 rounded-full bg-primary/20 flex items-center justify-center text-primary">
+            <Check size={24} />
+          </div>
+          <div>
+            <p className="text-white font-bold">Message Sent!</p>
+            <p className="text-slate-400 text-sm">Thank you! I'll get back to you soon.</p>
+          </div>
+          <button 
+            onClick={() => setStatus('idle')}
+            className="ml-auto text-slate-500 hover:text-white transition-colors"
+          >
+            <X size={20} />
+          </button>
+        </motion.div>
+      )}
+    </AnimatePresence>
+  </>
   );
 };

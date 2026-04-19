@@ -33,14 +33,10 @@ export const Projects = () => {
             >
               <div className="absolute inset-0 bg-white/[0.01] rounded-[4rem] group-hover:bg-primary/[0.03] transition-colors duration-700" />
               <div className="relative glass rounded-[4rem] overflow-hidden flex flex-col h-full border border-white/5 hover:border-primary/20 transition-all duration-700 shadow-2xl">
-                {/* Project Image Header */}
-                <div className="aspect-[16/9] overflow-hidden relative">
-                  <img 
-                    src={project.image} 
-                    alt={project.title}
-                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-1000 grayscale group-hover:grayscale-0"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-background via-background/20 to-transparent" />
+                {/* Icon Header instead of Image */}
+                <div className="aspect-[16/10] flex items-center justify-center relative bg-gradient-to-br from-slate-800 to-slate-900 group-hover:from-primary/10 group-hover:to-secondary/10 transition-colors duration-500">
+                  <project.icon className="text-primary/20 group-hover:text-primary transition-all duration-500 transform group-hover:scale-110" size={100} />
+                  <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(16,185,129,0.05)_0%,transparent_70%)]" />
                 </div>
 
                 {/* Project Content */}
@@ -48,7 +44,6 @@ export const Projects = () => {
                   <div className="flex items-start justify-between mb-8">
                     <div>
                       <div className="flex items-center gap-3 text-primary mb-3">
-                        <project.icon size={22} />
                         <span className="text-[10px] font-black uppercase tracking-[0.2em]">{project.feature}</span>
                       </div>
                       <h4 className="text-3xl md:text-4xl font-black text-white group-hover:text-primary transition-colors duration-500 tracking-tight">
@@ -58,12 +53,19 @@ export const Projects = () => {
                   </div>
                   
                   <div className="space-y-6 flex-1 mb-10">
-                    <p className="text-slate-400 font-medium leading-relaxed text-lg">
-                      {project.description}
-                    </p>
                     <div className="relative pl-6 border-l-2 border-primary/20 group-hover:border-primary/50 transition-colors">
-                      <span className="text-[10px] font-black uppercase tracking-[0.2em] text-primary/60 block mb-2">Technical Breakdown</span>
-                      <p className="text-slate-500 font-medium leading-relaxed italic text-sm">{project.breakdown}</p>
+                      <span className="text-[10px] font-black uppercase tracking-[0.2em] text-primary/60 block mb-2">Tech Description</span>
+                      <p className="text-slate-400 font-medium leading-relaxed text-sm">
+                        {project.techDescription}
+                      </p>
+                    </div>
+
+                    <div className="flex flex-wrap gap-2">
+                      {project.keyFeatures.map((f) => (
+                        <span key={f} className="px-3 py-1 bg-white/5 rounded-full text-[9px] font-bold text-slate-500 uppercase tracking-widest border border-white/5">
+                          {f}
+                        </span>
+                      ))}
                     </div>
                   </div>
 
