@@ -42,14 +42,13 @@ export const Contact = () => {
             viewport={{ once: true }}
             className="lg:w-1/2"
           >
-            <h2 className="text-sm font-bold text-primary uppercase tracking-[0.3em] mb-6">Inquiries</h2>
+            <h2 className="text-sm font-bold text-primary uppercase tracking-[0.3em] mb-6">Opportunities</h2>
             <h3 className="text-5xl md:text-7xl font-black mb-10 leading-none">
-              Let's Architect <br />
-              <span className="text-gradient">Success</span> <br />
-              Together.
+              Get In <span className="text-gradient">Touch.</span>
             </h3>
             <p className="text-slate-400 text-xl font-medium mb-12 max-w-lg leading-relaxed">
-              I'm available for technical consultation, system architecture design, and complex backend engineering projects.
+              I'm available for technical consultation, system architecture design, and complex backend engineering projects. <br />
+              <span className="text-white font-bold">Open for Full-time Roles & Freelance Inquiries.</span>
             </p>
 
             <div className="space-y-10">

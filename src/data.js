@@ -95,80 +95,56 @@ export const skills = [
 export const projects = [
   {
     id: 1,
-    title: "Live Bidding Engine",
-    description: "A high-performance auction platform with real-time bid synchronization and secure processing.",
-    problem: "High latency in bid updates caused synchronization issues and user frustration during live events.",
-    solution: "Architected a WebSocket-driven event system with Laravel and Redis to handle thousands of concurrent bids with sub-100ms latency.",
+    title: "Multi-Sport Scoring Engine",
+    description: "Real-time logic for Padel, Futsal, and Cricket using complex state machines.",
+    breakdown: "Architected a high-concurrency scoring engine that manages complex match states across different sports. Implemented WebSocket-based synchronization for sub-100ms score updates to thousands of users.",
     tech: ["Laravel", "WebSockets", "Redis", "MySQL"],
-    feature: "Real-time bid updates",
+    feature: "Complex State Management",
     icon: Zap,
     image: "https://images.unsplash.com/photo-1551288049-bbbda536639a?q=80&w=800&auto=format&fit=crop"
   },
   {
     id: 2,
-    title: "Scalable Ecommerce Backend",
-    description: "Multi-tenant ecommerce architecture designed for high volume transactions and inventory management.",
-    problem: "Existing monolithic systems struggled with peak traffic during sales and complex multi-vendor inventory.",
-    solution: "Developed a modular Laravel backend with horizontal scaling capabilities and an optimized database schema for fast read/writes.",
-    tech: ["Laravel", "PostgreSQL", "Elasticsearch", "Docker"],
-    feature: "Handles 10k+ daily transactions",
-    icon: ShoppingCart,
+    title: "Enterprise Bidding System",
+    description: "High-concurrency handling and automated winner selection.",
+    breakdown: "Developed a robust bidding system capable of handling thousands of bids per second. Engineered an automated auction closure and winner selection logic with transaction safety and data integrity.",
+    tech: ["Laravel", "Redis", "MySQL", "Socket.io"],
+    feature: "High-Concurrency Processing",
+    icon: Zap,
     image: "https://images.unsplash.com/photo-1557821552-17105176677c?q=80&w=800&auto=format&fit=crop"
   },
   {
     id: 3,
-    title: "Real-time Chat Infrastructure",
-    description: "A secure, enterprise-grade messaging system for internal corporate communication.",
-    problem: "The client needed a private, self-hosted communication tool that guaranteed data sovereignty and encryption.",
-    solution: "Built using Node.js and Socket.io with end-to-end encryption and custom authentication layers.",
-    tech: ["Node.js", "Socket.io", "Express", "MongoDB"],
-    feature: "E2E Encrypted messaging",
-    icon: MessageSquare,
-    image: "https://images.unsplash.com/photo-1611746872915-64382b5c76da?q=80&w=800&auto=format&fit=crop"
+    title: "Custom CRM & RBAC",
+    description: "Multi-tenant data isolation and granular permission matrices.",
+    breakdown: "Built a sophisticated CRM system with multi-tenancy and a deep RBAC (Role-Based Access Control) system. Ensured strict data isolation and implemented complex permission matrices for enterprise-grade security.",
+    tech: ["Laravel", "PostgreSQL", "Docker", "Nginx"],
+    feature: "Enterprise Security Architecture",
+    icon: Database,
+    image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=800&auto=format&fit=crop"
   },
   {
     id: 4,
-    title: "Intelligent Notification System",
-    description: "Centralized notification hub managing emails, push alerts, and SMS for millions of users.",
-    problem: "Fragmented notification logic across services led to delays and inconsistent user experiences.",
-    solution: "Created a dedicated Node.js microservice that manages all outgoing communications with fallback logic and delivery tracking.",
-    tech: ["Node.js", "Redis", "Kafka", "AWS SES"],
-    feature: "Automated delivery failover",
-    icon: Bell,
-    image: "https://images.unsplash.com/photo-1577563908411-5077b6dc7624?q=80&w=800&auto=format&fit=crop"
-  },
-  {
-    id: 5,
-    title: "CRM Dashboard System",
-    description: "Data-rich administrative dashboard for sales pipeline tracking and customer analytics.",
-    problem: "Sales teams were overwhelmed by raw data and lacked clear visual insights into their pipelines.",
-    solution: "Developed a comprehensive CRM with complex data aggregation and real-time sales metrics visualization.",
-    tech: ["Laravel", "Livewire", "Chart.js", "MySQL"],
-    feature: "Automated lead scoring",
-    icon: BarChart3,
-    image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=800&auto=format&fit=crop"
+    title: "E-commerce Backend",
+    description: "Inventory management, API integrations, and S3 bucket for media.",
+    breakdown: "Engineered a scalable ecommerce infrastructure with complex inventory management logic. Integrated third-party logistics and payment APIs, and leveraged AWS S3 for secure, high-availability media storage.",
+    tech: ["Node.js", "Express", "AWS S3", "MongoDB"],
+    feature: "Scalable API Ecosystem",
+    icon: ShoppingCart,
+    image: "https://images.unsplash.com/photo-1611746872915-64382b5c76da?q=80&w=800&auto=format&fit=crop"
   }
 ];
 
 export const experience = [
   {
-    period: "2022 - Present",
-    company: "Freelance Technical Consultant",
+    period: "2020 - Present (4+ Years)",
+    company: "HNH Soft Tech Solutions",
     role: "Senior Backend Developer",
     highlights: [
-      "Built multiple custom real-time systems for international clients, serving 50k+ daily active users.",
-      "Developed a high-frequency bidding system reducing latency from 2s to < 100ms.",
-      "Improved server performance by 40% through database optimization and Redis caching strategies."
-    ]
-  },
-  {
-    period: "2020 - 2022",
-    company: "CoreTech Solutions",
-    role: "Full Stack Developer",
-    highlights: [
-      "Architected and delivered 10+ scalable ecommerce and CRM systems using Laravel.",
-      "Integrated complex payment gateways and third-party APIs with 99.9% reliability.",
-      "Mentored junior developers and implemented standardized code review processes."
+      "Architecting custom backend solutions for international clients using Laravel and Node.js.",
+      "Leading the development of sports-tech and high-concurrency bidding platforms.",
+      "Optimizing database performance and implementing robust CI/CD pipelines.",
+      "Managing complex system migrations and ensuring 99.9% uptime for enterprise applications."
     ]
   }
 ];
