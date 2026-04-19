@@ -85,7 +85,7 @@ export const Hero = () => {
                 whileTap={{ scale: 0.95 }}
                 className="w-full px-10 py-5 bg-gradient-to-r from-primary to-secondary rounded-2xl font-bold text-white shadow-2xl shadow-primary/20 cursor-pointer flex items-center justify-center gap-2 group"
               >
-                Download CV <Download size={18} />
+                Download Resume <Download size={18} />
               </motion.button>
             </a>
             <Link to="projects" smooth={true} className="w-full sm:w-auto">

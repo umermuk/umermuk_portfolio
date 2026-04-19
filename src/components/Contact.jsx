@@ -16,10 +16,15 @@ export const Contact = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    const formData = new FormData(e.target);
+    const data = Object.fromEntries(formData.entries());
+    
     setStatus('sending');
     // Simulate API call
     setTimeout(() => {
+      console.log('Form submitted:', data);
       setStatus('success');
+      e.target.reset();
       setTimeout(() => setStatus('idle'), 5000);
     }, 1500);
   };
@@ -108,6 +113,7 @@ export const Contact = () => {
                   <div className="space-y-3">
                     <label className="text-[10px] font-black text-slate-500 uppercase tracking-[0.2em] ml-1">Your Name</label>
                     <input 
+                      name="name"
                       type="text" 
                       required
                       placeholder="John Doe"
@@ -117,6 +123,7 @@ export const Contact = () => {
                   <div className="space-y-3">
                     <label className="text-[10px] font-black text-slate-500 uppercase tracking-[0.2em] ml-1">Email Address</label>
                     <input 
+                      name="email"
                       type="email" 
                       required
                       placeholder="john@example.com"
@@ -127,6 +134,7 @@ export const Contact = () => {
                 <div className="space-y-3">
                   <label className="text-[10px] font-black text-slate-500 uppercase tracking-[0.2em] ml-1">Message Brief</label>
                   <textarea 
+                    name="message"
                     rows="5"
                     required
                     placeholder="Briefly describe the technical challenge or project scope..."

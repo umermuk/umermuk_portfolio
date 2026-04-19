@@ -92,8 +92,8 @@ export const Projects = () => {
                       <Code2 size={18} className="text-primary" />
                       <div className="flex flex-wrap gap-2">
                         {project.tech.map((t) => (
-                          <span key={t} className="text-[11px] font-black uppercase tracking-widest text-slate-400">
-                            {t} {project.tech.indexOf(t) !== project.tech.length - 1 && <span className="mx-1 text-primary/40">+</span>}
+                          <span key={t} className="text-[10px] font-bold text-primary/80 bg-primary/5 px-2.5 py-1 rounded-lg border border-primary/10 tracking-tight">
+                            #{t}
                           </span>
                         ))}
                       </div>
